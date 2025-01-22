@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blotcoins | Register</title>
+    <link rel="shortcut icon" href="../images/blotcoin.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        #blotic {
+            height: 45px;
+            margin-top: 30px;
+        }
+
+        .gradient {
+            background-image: linear-gradient(to right, yellow, rgb(255, 111, 0));
+            color: transparent;
+            background-clip: text;
+            font-weight: 500;
+        }
+
+        #blotcoins {
+            filter: hue-rotate(140deg);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            max-width: 500px;
+            width: 95%;
+            margin-left: 50%;
+            transform: translate(-50%);
+        }
+
+        input {
+            padding: 7px;
+            background-color: rgba(156, 156, 156, 0.214);
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            color: white;
+        }
+
+        label {
+            margin-left: 15px;
+            text-align: left;
+        }
+
+        button {
+            border: none;
+            background-color: #3b3b3b;
+            color: white;
+            max-width: 100px;
+            padding: 7px;
+            border-radius: 5px;
+            margin-left: 12px;
+            margin-top: 12px;
+        }
+
+        button:hover {
+            color: black;
+            background-color: white;
+            box-shadow: 0 0 10px white;
+        }
+
+        footer {
+            background-color: #000000;
+            position: fixed;
+            bottom: 0;
+            font-size: small;
+            width: calc(80% - 20px);
+            margin-left: 10%;
+            border-top: 1px solid rgb(150, 150, 150);
+            color: rgb(164, 164, 164);
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../images/blotic_full.png" alt="" id="blotic">
+    <p class="message">Register now- only <span class="gradient">300 users</span> can claim <span class="gradient"
+            id="blotcoins">Blotcoins!</span></p>
+    <form method="POST" action="/success" data-netlify="true" name="Blotcoins-register-1">
+        <label for="username">Username must only contain alphanumeric characters.</label>
+        <input type="text" id="username" name="username" placeholder="Username *" required pattern="^[a-zA-Z0-9]+$"
+            title="Username must only contain alphanumeric characters.">
+
+        <input type="email" id="email" name="email" placeholder="Email ID *" required
+            title="Please enter a valid email address.">
+
+        <input type="password" id="password" name="password" placeholder="Password *" required pattern=".{8,}"
+            title="Password must be at least 8 characters long." oninput="validatePassword()" 
+            onfocus="validatePassword()" 
+            onblur="validatePassword()" >
+        <p id="pwdError"
+            style="color:#fd4346; opacity: 0; font-size: 15px; white-space: normal; transition: opacity 0.4s ease ">
+            Password must be at least 8 characters long.</p>
+
+        <label for="confirm-password">Please confirm your password.</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password *" required
+            title="Please confirm your password.">
+
+        <div id="error-message" class="error"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+    <footer>
+        <p>&copy; Blotic 2025. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                errorMessage.textContent = "Passwords do not match!";
+            } else {
+                errorMessage.textContent = "";
+                // Redirect to profile.html after submission
+                e.preventDefault(); // Prevent default Netlify form submission
+                window.location.href = "profile.html";
+            }
+        });
+        function validatePassword() {
+            const passwordField = document.getElementById('password');
+            const hint = document.getElementById('pwdError');
+
+            if (passwordField.value.length > 0 && passwordField.value.length < 8) {
+                hint.style.opacity="100%";
+            } else {
+                hint.style.opacity="0%";
+            }
+        }
+    </script>
+</body>
+
+</html>

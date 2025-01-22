@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blotcoins | Profile</title>
+    <style>
+      body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: #000000;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: white;
+      }
+
+      h2 {
+            background-image: linear-gradient(to right, rgb(255, 64, 0), rgb(238, 255, 0));
+            color: transparent;
+            background-clip: text;
+            font-weight: 500;
+        margin-top: 40px;
+      }
+      #blotic {
+      height: 45px;
+      margin-top: 32px;
+    }
+
+    #coin {
+      height: 170px;
+    }
+
+      footer {
+        background-color: #000000;
+        position: fixed;
+        bottom: 0;
+        font-size: small;
+        width: calc(80% - 20px);
+        margin-left: 10%;
+        border-top: 1px solid rgb(150, 150, 150);
+        color: rgb(164, 164, 164);
+        padding: 10px;
+        text-align: center;
+      }
+
+      #name {
+        background-image: linear-gradient(
+          to right,
+          rgb(75, 75, 255),
+          rgb(0, 213, 246),
+          rgb(0, 255, 200)
+        );
+        color: transparent;
+        background-clip: text;
+      }
+
+      #amount {
+        background-image: linear-gradient(
+          to right,
+          rgb(255, 249, 75),
+          orange,
+          gold
+        );
+        color: transparent;
+        background-clip: text;
+        font-weight: bolder;
+      }
+
+      button {
+        margin-top: 70px;
+        width: 40%;
+        max-width: 200px;
+        padding: 10px;
+        background-color: #3b3b3b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+      }
+      button:hover {
+        background-color: #e4e4e4;
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body> 
+    <img src="../images/blotic_full.png" alt="" id="blotic">
+    
+    <h2>Conratulations!</h2>
+    <p>
+      You have <span id="amount">50 Boltcoins</span> in your
+      wallet.
+    </p>
+
+    <footer>
+      <p>&copy; Blotic 2025. All rights reserved.</p>
+    </footer>
+    <a href="{% url 'index' %}"><button>Logout</button></a>
+  </body>
+</html>
